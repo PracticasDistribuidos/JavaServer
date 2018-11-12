@@ -4,9 +4,9 @@ import com.google.gson.annotations.Expose;
 
 public class RequestType {
     @Expose
-    public String type;
+    public String tipo;
 
     public RequestType(String type) {
-        this.type = type;
+        this.tipo = type;
     }
 }
