@@ -4,6 +4,7 @@ import myserverpackage.requests.AddUser;
 import myserverpackage.requests.RequestType;
 import myserverpackage.utils.SocketDetails;
 
+import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.net.*;
 import java.util.HashMap;
@@ -45,7 +46,10 @@ public class MyServer {
                     case "CONNECT":
                         addUser(json, request.getAddress(), request.getPort(), socket);
                         break;
+                    case "LIST_USERS":
+                        listUsers(request.getAddress(),request.getPort(),socket);
                     default:
+
                         break;
                 }
 
@@ -63,6 +67,16 @@ public class MyServer {
             }
         }
         return null;
+    }
+
+    private static void listUsers(InetAddress ip, int port, DatagramSocket socket) throws IOException {
+        String response = "";
+        for ( String key : users.keySet() ) {
+            response += key + ",";
+        }
+        byte [] sendMsg = (response).getBytes();
+        DatagramPacket reply = new DatagramPacket(sendMsg,sendMsg.length,ip,port);
+        socket.send(reply);
     }
 
     private static void addUser(String request, InetAddress ip, int port, DatagramSocket socket) throws IOException {
