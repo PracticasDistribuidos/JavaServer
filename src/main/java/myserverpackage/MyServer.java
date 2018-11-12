@@ -25,14 +25,16 @@ public class MyServer {
             while(true) {
                 DatagramPacket request = new DatagramPacket(buffer, buffer.length);
                 socket.receive(request);
-                System.out.println("Recibí request");
 
 
                 String json = new String(request.getData()).substring(0, request.getLength());
-                System.out.println("Json = " + json);
+
                 RequestType identify = gson.fromJson(json, RequestType.class);
 
-                if(!identify.type.equals("CONNECT")) {
+                System.out.println("Json = " + json);
+
+                if(!(identify.type.equals("CONNECT"))) {
+                    System.out.println("Entre a intentar validar");
                     String validation = validateUser(request.getAddress(), request.getPort());
                     if (validation == null) {
                         byte[] replyMsg = ("Usuario no reconocido. Primero escoge un nick").getBytes();
@@ -48,11 +50,11 @@ public class MyServer {
                         break;
                     case "LIST_USERS":
                         listUsers(request.getAddress(),request.getPort(),socket);
+                    case "EXIT":
+                        removeUser(request.getAddress(),request.getPort(),socket);
                     default:
-
                         break;
                 }
-
             }
         } catch (Exception exc) {
 
@@ -93,5 +95,10 @@ public class MyServer {
         }
     }
 
-
+    private static void removeUser(InetAddress ip, int port, DatagramSocket socket) throws IOException {
+        users.remove(validateUser(ip, port));
+        byte [] sendMsg = ("Hasta luego").getBytes();
+        DatagramPacket reply = new DatagramPacket(sendMsg,sendMsg.length,ip,port);
+        socket.send(reply);
+    }
 }
