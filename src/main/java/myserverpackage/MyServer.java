@@ -94,12 +94,15 @@ public class MyServer {
     }
 
     private static void sendMessage(String request, InetAddress ip, int port, DatagramSocket socket) throws IOException {
+        String sender = getUser(ip,port);
         SendMessage json = gson.fromJson(request, SendMessage.class);
         MessageResponse r = new MessageResponse(getUser(ip,port),json.message);
         String msg = (gson.toJson(r));
         if (json.destinatary.equals("ALL")) {
             for ( String key : users.keySet() ) {
-                sendResponse(msg,users.get(key).ip,users.get(key).port,socket);
+                if(!key.equals(sender)) {
+                    sendResponse(msg,users.get(key).ip,users.get(key).port,socket);
+                }
             }
         } else {
             for (String key : users.keySet()) {
@@ -132,7 +135,7 @@ public class MyServer {
 
     private static void removeUser(InetAddress ip, int port, DatagramSocket socket) throws IOException {
         users.remove(getUser(ip, port));
-        AcknowledgeResponse a = new AcknowledgeResponse("END_OK");
+        AcknowledgeResponse a = new AcknowledgeResponse("EXIT_OK");
         String msg = (gson.toJson(a));
         sendResponse(msg,ip,port,socket);
     }
