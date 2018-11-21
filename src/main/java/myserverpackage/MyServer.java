@@ -1,10 +1,7 @@
 package myserverpackage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import myserverpackage.requests.AddUser;
-import myserverpackage.requests.BlockUser;
-import myserverpackage.requests.RequestType;
-import myserverpackage.requests.SendMessage;
+import myserverpackage.requests.*;
 import myserverpackage.responses.*;
 import myserverpackage.utils.SocketDetails;
 import java.io.IOException;
@@ -62,6 +59,10 @@ public class MyServer {
                         break;
                     case "BLOCK_USER":
                         blockUser(json,request.getAddress(),request.getPort(),socket);
+                        break;
+                    case "UNBLOCK_USER":
+                        unblockUser(json,request.getAddress(),request.getPort(),socket);
+                        break;
                     default:
                         break;
                 }
@@ -112,6 +113,9 @@ public class MyServer {
                     if(users.get(key).loggedIn) {
                         if (!users.get(key).blockedUsers.contains(sender)) {
                             sendResponse(msg, users.get(key).ip, users.get(key).port, socket);
+                            AcknowledgeResponse a = new AcknowledgeResponse("MESSAGE_SENT_SUCCESSFULLY");
+                            msg = (gson.toJson(a));
+                            sendResponse(msg,ip,port,socket);
                         } else {
                             ErrorResponse e = new ErrorResponse("BLOCKED_BY_USER");
                             msg = (gson.toJson(e));
@@ -126,7 +130,7 @@ public class MyServer {
                     return;
                 }
             }
-            ErrorResponse e = new ErrorResponse("USER_NOT_FOUND");
+            ErrorResponse e = new ErrorResponse("USER_DOES_NOT_EXIST");
             msg = (gson.toJson(e));
             sendResponse(msg,ip,port,socket);
         }
@@ -177,6 +181,21 @@ public class MyServer {
             sendResponse(msg,ip,port,socket);
         } else {
             ErrorResponse e = new ErrorResponse("USER_DOES_NOT_EXIST");
+            String msg = (gson.toJson(e));
+            sendResponse(msg,ip,port,socket);
+        }
+    }
+
+    private static void unblockUser(String request, InetAddress ip, int port, DatagramSocket socket) throws IOException {
+        UnblockUser json = gson.fromJson(request, UnblockUser.class);
+        String sender = getUser(ip,port);
+        if(users.get(sender).blockedUsers.contains(json.user)) {
+            users.get(sender).blockedUsers.remove(json.user);
+            AcknowledgeResponse a = new AcknowledgeResponse("USER_UNBLOCKED");
+            String msg = (gson.toJson(a));
+            sendResponse(msg,ip,port,socket);
+        } else {
+            ErrorResponse e = new ErrorResponse("USER_WAS_NOT_BLOCKED");
             String msg = (gson.toJson(e));
             sendResponse(msg,ip,port,socket);
         }
