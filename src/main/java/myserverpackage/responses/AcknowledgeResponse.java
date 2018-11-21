@@ -8,4 +8,7 @@ public class AcknowledgeResponse {
         this.type = "ACKNOWLEDGE";
         this.description = description;
     }
+
+    public static class Inbox {
+    }
 }

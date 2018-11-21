@@ -4,12 +4,8 @@ import com.google.gson.GsonBuilder;
 import myserverpackage.requests.AddUser;
 import myserverpackage.requests.RequestType;
 import myserverpackage.requests.SendMessage;
-import myserverpackage.responses.AcknowledgeResponse;
-import myserverpackage.responses.ErrorResponse;
-import myserverpackage.responses.ListResponse;
-import myserverpackage.responses.MessageResponse;
+import myserverpackage.responses.*;
 import myserverpackage.utils.SocketDetails;
-
 import java.io.IOException;
 import java.net.*;
 import java.util.ArrayList;
@@ -22,7 +18,6 @@ public class MyServer {
     private static Gson gson = new Gson();
 
     private static GsonBuilder builder = new GsonBuilder();
-    private static Gson gsonB = builder.create();
 
     public static void main(String[] args) {
         DatagramSocket socket;
@@ -107,12 +102,18 @@ public class MyServer {
         } else {
             for (String key : users.keySet()) {
                 if (json.destinatary.equals(key)) {
-                    sendResponse(msg, users.get(key).ip, users.get(key).port, socket);
-                    System.out.println("Mande Mensaje nomas a uno");
+                    if(users.get(key).loggedIn) {
+                        sendResponse(msg, users.get(key).ip, users.get(key).port, socket);
+                    } else {
+                        AcknowledgeResponse a = new AcknowledgeResponse("SAVED_TO_INBOX");
+                        msg = (gson.toJson(a));
+                        users.get(key).inbox.add(json.message);
+                        sendResponse(msg,ip,port,socket);
+                    }
                     return;
                 }
             }
-            ErrorResponse e = new ErrorResponse("DESTINATARY_NOT_FOUND");
+            ErrorResponse e = new ErrorResponse("USER_NOT_FOUND"); //Works fine
             msg = (gson.toJson(e));
             sendResponse(msg,ip,port,socket);
         }
@@ -122,19 +123,38 @@ public class MyServer {
     private static void addUser(String request, InetAddress ip, int port, DatagramSocket socket) throws IOException {
         AddUser user = gson.fromJson(request, AddUser.class);
         if (!users.containsKey(user.nick)) {
-            users.put(user.nick, new SocketDetails(ip, port));
+            users.put(user.nick, new SocketDetails(ip, port,user.password));
             AcknowledgeResponse a = new AcknowledgeResponse("CONNECT_OK");
             String msg = (gson.toJson(a));
             sendResponse(msg,ip,port,socket);
         } else {
-            ErrorResponse e = new ErrorResponse("USERNAME_TAKEN");
-            String msg = (gson.toJson(e));
-            sendResponse(msg,ip,port,socket);
+            SocketDetails usuario = users.get(user.nick);
+            if (usuario.password.equals(user.password) && usuario.loggedIn == false) {
+                usuario.loggedIn = true;
+                usuario.port = port;
+                usuario.ip = ip;
+
+                if(usuario.inbox.size() > 0) {
+                    Inbox i = new Inbox(usuario.inbox);
+                    String msg = (gson.toJson(i));
+                    sendResponse(msg,ip,port,socket);
+                    return;
+                }
+
+                AcknowledgeResponse a = new AcknowledgeResponse("CONNECT_OK");
+                String msg = (gson.toJson(a));
+                sendResponse(msg,ip,port,socket);
+            } else {
+                ErrorResponse e = new ErrorResponse("USERNAME_TAKEN");
+                String msg = (gson.toJson(e));
+                sendResponse(msg, ip, port, socket);
+            }
         }
     }
 
     private static void removeUser(InetAddress ip, int port, DatagramSocket socket) throws IOException {
-        users.remove(getUser(ip, port));
+        SocketDetails usuario = users.get(getUser(ip, port));
+        usuario.loggedIn = false;
         AcknowledgeResponse a = new AcknowledgeResponse("EXIT_OK");
         String msg = (gson.toJson(a));
         sendResponse(msg,ip,port,socket);
