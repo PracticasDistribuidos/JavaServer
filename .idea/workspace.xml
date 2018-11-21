@@ -7,18 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4e55022-a342-45a6-be6d-1869b4090b6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Practica_5_Server_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Practica 5 Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Practica 5 Server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Practica_5_Server_jar/Practica 5 Server.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Practica_5_Server_jar/Practica 5 Server.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myserverpackage/MyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myserverpackage/MyServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myserverpackage/requests/AddUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myserverpackage/requests/AddUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myserverpackage/responses/AcknowledgeResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myserverpackage/responses/AcknowledgeResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myserverpackage/responses/Inbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myserverpackage/responses/Inbox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myserverpackage/utils/SocketDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myserverpackage/utils/SocketDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/myserverpackage/MyServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/myserverpackage/MyServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/myserverpackage/requests/AddUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/myserverpackage/requests/AddUser.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,23 +32,24 @@
     <session id="1429657766">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.114" value="1" />
           <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="2" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="MF" value="1" />
-          <entry key="java" value="15" />
+          <entry key="java" value="16" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="15" />
+          <entry key="JAVA" value="16" />
           <entry key="Manifest" value="1" />
           <entry key="XML" value="1" />
         </counts>
@@ -63,13 +57,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="16" />
-          <entry key="java" value="4163" />
+          <entry key="java" value="4351" />
           <entry key="xml" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4163" />
+          <entry key="JAVA" value="4351" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="XML" value="17" />
         </counts>
@@ -81,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/MyServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="70" column="33" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="33" />
+            <state relative-caret-position="1695">
+              <caret line="113" column="17" lean-forward="true" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/responses/MessageResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -102,8 +96,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/responses/Inbox.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="195">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/responses/InboxDetail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -111,12 +114,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/utils/SocketDetails.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+            <state relative-caret-position="255">
+              <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#299#300#0" expanded="true" />
-                <element signature="e#377#378#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+            <state relative-caret-position="437">
+              <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -135,7 +136,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/requests/AddUser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -183,12 +184,13 @@
         <option value="$PROJECT_DIR$/src/main/java/myserverpackage/requests/SendMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/myserverpackage/responses/MessageResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/myserverpackage/requests/Weather.java" />
         <option value="$PROJECT_DIR$/src/main/java/myserverpackage/requests/MainWeatherInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/myserverpackage/requests/AddUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/myserverpackage/utils/SocketDetails.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/myserverpackage/responses/InboxDetail.java" />
         <option value="$PROJECT_DIR$/src/main/java/myserverpackage/responses/Inbox.java" />
+        <option value="$PROJECT_DIR$/src/main/java/myserverpackage/utils/SocketDetails.java" />
         <option value="$PROJECT_DIR$/src/main/java/myserverpackage/MyServer.java" />
       </list>
     </option>
@@ -210,7 +212,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -295,11 +296,21 @@
               <item name="myserverpackage" type="462c0819:PsiDirectoryNode" />
               <item name="responses" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Practica 5 Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Practica 5 Server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="myserverpackage" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -311,8 +322,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542761755537" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Practica 5 Client" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542819034860" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -378,12 +389,13 @@
       <workItem from="1542468010713" duration="5402000" />
       <workItem from="1542575551489" duration="602000" />
       <workItem from="1542589247520" duration="86000" />
-      <workItem from="1542746682514" duration="9727000" />
+      <workItem from="1542746682514" duration="10523000" />
+      <workItem from="1542818488479" duration="480000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26657000" />
+    <option name="totallyTimeSpent" value="27933000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -397,7 +409,7 @@
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1926" height="1058" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26040554" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26307365" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -406,17 +418,17 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49786553" visible="true" weight="0.3290461" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733192" weight="0.3290461" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978564" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4994664" weight="0.3290461" />
-      <window_info anchor="bottom" id="CheckStyle" order="7" sideWeight="0.4994664" weight="0.3290461" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4994664" weight="0.3290461" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49893278" weight="0.3301179" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50213444" side_tool="true" visible="true" weight="0.3290461" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49893278" weight="0.3290461" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49893278" weight="0.3290461" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49893278" weight="0.3290461" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49786553" visible="true" weight="0.3301179" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50213444" side_tool="true" visible="true" weight="0.3301179" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49893278" weight="0.3290461" />
+      <window_info anchor="bottom" id="CheckStyle" order="12" sideWeight="0.49893278" weight="0.3290461" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -470,20 +482,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/requests/MainWeatherInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/requests/MainWeatherInfo.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -491,60 +490,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/requests/Weather.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/requests/Weather.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/requests/Inbox.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/responses/MessageResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/requests/AddUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/utils/SocketDetails.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#299#300#0" expanded="true" />
-            <element signature="e#377#378#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="437">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/requests/Inbox.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/responses/InboxDetail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/responses/MessageResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/responses/Inbox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/utils/SocketDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/myserverpackage/MyServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="70" column="33" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="33" />
+        <state relative-caret-position="1695">
+          <caret line="113" column="17" lean-forward="true" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

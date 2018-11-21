@@ -107,7 +107,7 @@ public class MyServer {
                     } else {
                         AcknowledgeResponse a = new AcknowledgeResponse("SAVED_TO_INBOX");
                         msg = (gson.toJson(a));
-                        users.get(key).inbox.add(json.message);
+                        users.get(key).inbox.add(new InboxDetail(sender,json.message));
                         sendResponse(msg,ip,port,socket);
                     }
                     return;
@@ -130,6 +130,7 @@ public class MyServer {
         } else {
             SocketDetails usuario = users.get(user.nick);
             if (usuario.password.equals(user.password) && usuario.loggedIn == false) {
+                //Actualizar información del usuario.
                 usuario.loggedIn = true;
                 usuario.port = port;
                 usuario.ip = ip;
@@ -137,6 +138,7 @@ public class MyServer {
                 if(usuario.inbox.size() > 0) {
                     Inbox i = new Inbox(usuario.inbox);
                     String msg = (gson.toJson(i));
+                    usuario.inbox = new ArrayList<>();
                     sendResponse(msg,ip,port,socket);
                     return;
                 }

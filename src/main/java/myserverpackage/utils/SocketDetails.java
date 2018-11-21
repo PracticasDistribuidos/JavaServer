@@ -1,12 +1,14 @@
 package myserverpackage.utils;
 
+import myserverpackage.responses.InboxDetail;
+
 import java.net.InetAddress;
 import java.util.ArrayList;
 
 public class SocketDetails {
     public InetAddress ip;
     public int port;
-    public ArrayList<String> inbox;
+    public ArrayList<InboxDetail> inbox;
     public boolean loggedIn;
     public String password;
 
