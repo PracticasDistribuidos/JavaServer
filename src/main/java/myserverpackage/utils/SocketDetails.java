@@ -9,6 +9,7 @@ public class SocketDetails {
     public InetAddress ip;
     public int port;
     public ArrayList<InboxDetail> inbox;
+    public ArrayList<String> blockedUsers;
     public boolean loggedIn;
     public String password;
 
@@ -16,6 +17,7 @@ public class SocketDetails {
         this.ip = ipA;
         this.port = port;
         inbox = new ArrayList<>();
+        blockedUsers = new ArrayList<>();
         loggedIn = true;
         this.password = password;
     }
@@ -23,7 +25,6 @@ public class SocketDetails {
     public SocketDetails(InetAddress ipA, int port) {
         this.ip = ipA;
         this.port = port;
-        inbox = new ArrayList<>();
     }
 
 

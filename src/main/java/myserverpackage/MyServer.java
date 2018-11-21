@@ -2,6 +2,7 @@ package myserverpackage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import myserverpackage.requests.AddUser;
+import myserverpackage.requests.BlockUser;
 import myserverpackage.requests.RequestType;
 import myserverpackage.requests.SendMessage;
 import myserverpackage.responses.*;
@@ -59,6 +60,8 @@ public class MyServer {
                     case "SEND_MESSAGE":
                         sendMessage(json,request.getAddress(),request.getPort(),socket);
                         break;
+                    case "BLOCK_USER":
+                        blockUser(json,request.getAddress(),request.getPort(),socket);
                     default:
                         break;
                 }
@@ -79,9 +82,11 @@ public class MyServer {
     }
 
     private static void listUsers(InetAddress ip, int port, DatagramSocket socket) throws IOException {
-        ArrayList<String> response = new ArrayList<String>();
+        ArrayList<String> response = new ArrayList<>();
         for ( String key : users.keySet() ) {
-            response.add(key);
+            if (users.get(key).loggedIn) {
+                response.add(key);
+            }
         }
         ListResponse l = new ListResponse(response);
         String msg = (gson.toJson(l));
@@ -96,14 +101,22 @@ public class MyServer {
         if (json.destinatary.equals("ALL")) {
             for ( String key : users.keySet() ) {
                 if(!key.equals(sender)) {
-                    sendResponse(msg,users.get(key).ip,users.get(key).port,socket);
+                    if (!users.get(key).blockedUsers.contains(sender)) {
+                        sendResponse(msg,users.get(key).ip,users.get(key).port,socket);
+                    }
                 }
             }
         } else {
             for (String key : users.keySet()) {
                 if (json.destinatary.equals(key)) {
                     if(users.get(key).loggedIn) {
-                        sendResponse(msg, users.get(key).ip, users.get(key).port, socket);
+                        if (!users.get(key).blockedUsers.contains(sender)) {
+                            sendResponse(msg, users.get(key).ip, users.get(key).port, socket);
+                        } else {
+                            ErrorResponse e = new ErrorResponse("BLOCKED_BY_USER");
+                            msg = (gson.toJson(e));
+                            sendResponse(msg,ip,port,socket);
+                        }
                     } else {
                         AcknowledgeResponse a = new AcknowledgeResponse("SAVED_TO_INBOX");
                         msg = (gson.toJson(a));
@@ -113,7 +126,7 @@ public class MyServer {
                     return;
                 }
             }
-            ErrorResponse e = new ErrorResponse("USER_NOT_FOUND"); //Works fine
+            ErrorResponse e = new ErrorResponse("USER_NOT_FOUND");
             msg = (gson.toJson(e));
             sendResponse(msg,ip,port,socket);
         }
@@ -154,6 +167,21 @@ public class MyServer {
         }
     }
 
+    private static void blockUser(String request, InetAddress ip, int port, DatagramSocket socket) throws IOException {
+        BlockUser json = gson.fromJson(request, BlockUser.class);
+        String sender = getUser(ip,port);
+        if(users.containsKey(json.user)) {
+            users.get(sender).blockedUsers.add(json.user);
+            AcknowledgeResponse a = new AcknowledgeResponse("USER_BLOCKED");
+            String msg = (gson.toJson(a));
+            sendResponse(msg,ip,port,socket);
+        } else {
+            ErrorResponse e = new ErrorResponse("USER_DOES_NOT_EXIST");
+            String msg = (gson.toJson(e));
+            sendResponse(msg,ip,port,socket);
+        }
+    }
+
     private static void removeUser(InetAddress ip, int port, DatagramSocket socket) throws IOException {
         SocketDetails usuario = users.get(getUser(ip, port));
         usuario.loggedIn = false;
@@ -162,7 +190,7 @@ public class MyServer {
         sendResponse(msg,ip,port,socket);
     }
 
-    public static void sendResponse(String msg, InetAddress ip, int port, DatagramSocket socket) {
+    private static void sendResponse(String msg, InetAddress ip, int port, DatagramSocket socket) {
         try {
             byte[] b = msg.getBytes();
             DatagramPacket request = new DatagramPacket(b, b.length, ip, port);
